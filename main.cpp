@@ -1,62 +1,52 @@
-// Fig. 8.13: fig08_13.cpp
-// Selection sort with pass-by-reference. This program puts values into an 
-// array, sorts them into ascending order and prints the resulting array.
-#include <iostream> 
-#include <iomanip>
+#include<iostream>
+
 using namespace std;
 
-void selectionSort( int * const, const int ); // prototype
-void swap( int * const, int * const ); // prototype
 
-int main()
+template <class T>
+void selectionSort(T array[],int size) //easeir for me to build in the swap function than it is to make a new funtion temple and so on.
 {
-   const int arraySize = 10;
-   int a[ arraySize ] = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
-
-   cout << "Data items in original order\n";
-
-   for ( int i = 0; i < arraySize; ++i )
-      cout << setw( 4 ) << a[ i ];
-
-   selectionSort( a, arraySize ); // sort the array
-
-   cout << "\nData items in ascending order\n";
-
-   for ( int j = 0; j < arraySize; ++j )
-      cout << setw( 4 ) << a[ j ];
-
-   cout << endl;
-} // end main
-
-// function to sort an array
-void selectionSort( int * const array, const int size )
-{
-   int smallest; // index of smallest element
+     int smallest; // index of smallest element
 
    // loop over size - 1 elements
-   for ( int i = 0; i < size - 1; ++i )
+   for ( int j= 0; j< size - 1; ++j)
    {
-      smallest = i; // first index of remaining array
+      smallest = j; // first index of remaining array
 
       // loop to find index of smallest element
-      for ( int index = i + 1; index < size; ++index )
-
-         if ( array[ index ] < array[ smallest ] )
-            smallest = index;
-
-      swap( &array[ i ], &array[ smallest ] );
+      for ( int index = j+ 1; index < size; ++index )
+      swap( &array[ j ], &array[ smallest ] );
    } // end if
 } // end function selectionSort
-
-// swap values at memory locations to which
-// element1Ptr and element2Ptr point
-void swap( int * const element1Ptr, int * const element2Ptr )
+template <class T>
+void swap ( t element1Ptr, T element2Ptr )
 {
    int hold = *element1Ptr;
    *element1Ptr = *element2Ptr;
    *element2Ptr = hold;
 } // end function swap
+int main()
+{
+    int a[100],j,n; // 
+    float f[100];
+    cout<<"Enter The number of Element:\n";
+    cin>>n;
+    cout<<"\nEnter Elements:\n";
+    for(j=0;j<n;j++)
+    {
 
+       cout<<"\nEnter:";
+       cin>>f[j];
+    }
+  
+    selectionSort(f,n);
+    cout<<"\nAfter Sorting\n";
+    for(j=0;j<n;j++)
+    {
+       cout<<f[j]<<"\t";
+    }
+    return 0;
+}
 /**************************************************************************
  * (C) Copyright 1992-2012 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
@@ -71,4 +61,3 @@ void swap( int * const element1Ptr, int * const element2Ptr )
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
  **************************************************************************/
-
