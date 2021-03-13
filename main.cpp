@@ -17,9 +17,15 @@ void selectionSort(T array[],int size) //easeir for me to build in the swap func
 
       // loop to find index of smallest element
       for ( int index = j+ 1; index < size; ++index )
-      swap( &array[ j ], &array[ smallest ] );
+   //swap( &array[ j ], &array[ smallest ] );   
+   if ( array[ index ] < array[ smallest ] )
+   smallest = index;
+   T t=array[j];
+   array[j]=array[smallest];
+   array[smallest]=t;
    } // end if
 } // end function selectionSort
+/*
 template <class T>
 void swap ( t element1Ptr, T element2Ptr )
 {
@@ -27,6 +33,7 @@ void swap ( t element1Ptr, T element2Ptr )
    *element1Ptr = *element2Ptr;
    *element2Ptr = hold;
 } // end function swap
+*/
 int main()
 {
     int a[100],j,n; // 
