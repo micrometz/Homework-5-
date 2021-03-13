@@ -1,7 +1,9 @@
-#include<iostream>
-
+// Fig. 8.13: fig08_13.cpp
+// Selection sort with pass-by-reference. This program puts values into an 
+// array, sorts them into ascending order and prints the resulting array.
+#include <iostream> 
+#include <iomanip>
 using namespace std;
-
 
 template <class T>
 void selectionSort(T array[],int size) //easeir for me to build in the swap function than it is to make a new funtion temple and so on.
